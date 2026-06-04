@@ -6,30 +6,75 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Rohan Lodhi</title>
   <style>
+    html { }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      font-family: "Source Sans 3", sans-serif;
+      line-height: 1.75;
+      max-width: 660px;
+      margin: 3.5rem auto;
+      padding: 0 1.25rem;
       color: #222;
-      background: #fff;
+      background: hsl(38 25% 94%);
     }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .5rem; }
-    a { color: #0070f3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    p { margin-bottom: 1rem; }
+    .paper-grain {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      opacity: .04;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+    h1 {
+      font-family: Newsreader, Georgia, serif;
+      font-size: 2.1rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      color: hsl(222 45% 19%);
+    }
+    h2 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #0070f3;
+      text-decoration: underline;
+      text-decoration-color: rgba(0,112,243,0.3);
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.15s;
+    }
+    a:hover { text-decoration-color: #0070f3; }
+    strong { font-weight: 600; color: hsl(222 45% 19%); }
+    p { margin-bottom: 0.9rem; }
+    .email-chip {
+      background: rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 1px 6px;
+      font-family: monospace;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
     footer {
       margin-top: 3rem;
-      font-size: 0.9rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.875rem;
       color: #666;
     }
   </style>
 </head>
 <body>
+  <div class="paper-grain" aria-hidden="true"></div>
   <header>
-    <h1>Hi, I’m Rohan Lodhi 👋</h1>
+    <h1>Hi, I’m Rohan 👋</h1>
     <p>CS & Math @ FLAME. Into systems, low-level, and the hardware-software interaction.  
     Explored cybersecurity at DRDO and automation at Model N through my intersnhips.</p>
   </header>
@@ -40,10 +85,10 @@
     I enjoy the intersection of performance, security, and minimal design.</p>
 
     <h2>Work</h2>
-    <p><strong>Cybersecurity Intern</strong> @ DRDO: Researched OT security and built a VAPT pipeline (Nmap, Amass, Recon-ng). Looked into AI-driven anomaly detection for ICS networks.</p>
-    <p><strong>Software Automation Intern</strong> @ Model N: Built Python ETL pipelines, React dashboards, and internal automation tools.</p>
-    <p><strong>Millennium Fellow</strong> (UN x MCN): Co-developed a community sourced platform for Environmental Data using React + MongoDB, aimed at open sourcing data and creating ML models.</p>
-    <p><strong>Research Assistant</strong> @ FLAME: Worked on PDEs and numerical computing with Python + SciPy stack.</p>
+    <p><strong>Cybersecurity Intern</strong> @ <a href="https://www.drdo.gov.in/drdo/">DRDO</a>: Researched OT security and built a VAPT pipeline (Nmap, Amass, Recon-ng). Looked into AI-driven anomaly detection for ICS networks.</p>
+    <p><strong>Software Automation Intern</strong> @ <a href="https://www.modeln.com/">Model N</a>: Built Python ETL pipelines, React dashboards, and internal automation tools.</p>
+    <p><strong>Millennium Fellow</strong> <a href="https://www.millenniumfellows.org/fellow/2023/flame/rohan-lodhi">(UN x MCN)</a>: Co-developed a community sourced platform for Environmental Data using React + MongoDB, aimed at open sourcing data and creating ML models.</p>
+    <p><strong>Research Assistant</strong> @ <a href="https://www.flame.edu.in/faculty/renu-dhadwal">FLAME</a>: Worked on PDEs and numerical computing with Python + SciPy stack.</p>
 
     <h2>Projects</h2>
     <p><strong><a href="https://developit.in/blog/Writing-a-Bare-Metal-Hypervisor-from-Scratch">Bare-Metal Distributed ARM Hypervisor</a></strong>: Noise-robust Type-1 ARMv8-A hypervisor built with Rust, ARMv8-A, and QEMU. Implemented exception handling, interrupt virtualization, and distributed failover.</p>
@@ -56,7 +101,7 @@
     <p><strong><a href="https://reactango.vercel.app/">Reactango</a></strong>: Coding challenge web app built with React. Early playground for frontend skills.</p>
 
     <h2>Contact</h2>
-    <p>You can reach out to me at: <span style="background-color: #f4f4f4; border: 1px solid #ddd; padding: 2px 5px; font-family: monospace; border-radius: 5px;">rohan at developit . in</span></p>
+    <p>You can reach out to me at: <span class="email-chip">rohan at developit . in</span></p>
     <p><a href="https://github.com/RohanLodhi">GitHub</a> / <a href="https://linkedin.com/in/rohanlodhi">LinkedIn</a> / <a href="https://developit.in/blog">Blog</a> / <a href="resume_april_2026_nonumber.pdf" target="_blank" rel="nooperner noreferrer"> Resume </a> </p>
 
   </main>
