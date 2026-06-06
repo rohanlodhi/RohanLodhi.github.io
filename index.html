@@ -100,6 +100,9 @@
     <p><strong><a href="https://github.com/RohanLodhi/prowser">Prowser</a></strong>: A teaching web browser in Python + Tkinter. Custom HTML parser, virtual DOM, and renderer from scratch.</p>
     <p><strong><a href="https://reactango.vercel.app/">Reactango</a></strong>: Coding challenge web app built with React. Early playground for frontend skills.</p>
 
+    <h2>Writing</h2>
+    <div id="blog-list"></div>
+
     <h2>Contact</h2>
     <p>You can reach out to me at: <span class="email-chip">rohan at developit . in</span></p>
     <p><a href="https://github.com/RohanLodhi">GitHub</a> / <a href="https://linkedin.com/in/rohanlodhi">LinkedIn</a> / <a href="https://developit.in/blog">Blog</a> / <a href="resume_april_2026_nonumber.pdf" target="_blank" rel="nooperner noreferrer"> Resume </a> </p>
@@ -117,5 +120,16 @@
       </a>— fast, minimal, and focused on content.
     </p>
   </footer>
+  <script>
+    fetch('https://developit.in/blog/static/contentIndex.json')
+      .then(r => r.json())
+      .then(data => {
+        const posts = Object.entries(data).filter(([slug]) => slug !== 'index');
+        document.getElementById('blog-list').innerHTML = posts.length
+          ? posts.map(([slug, v]) => `<p><a href="https://developit.in/blog/${slug}">${v.title}</a></p>`).join('')
+          : '<p>No posts yet.</p>';
+      })
+      .catch(() => { document.getElementById('blog-list').innerHTML = '<p>Could not load posts.</p>'; });
+  </script>
 </body>
 </html>
